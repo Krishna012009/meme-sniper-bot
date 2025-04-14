@@ -1,0 +1,53 @@
+# === Core Bot & Sniper Functionality ===
+requests
+beautifulsoup4
+schedule
+gspread
+oauth2client
+google-auth
+google-auth-oauthlib
+google-auth-httplib2
+python-telegram-bot==20.3
+telethon
+
+# === AI & Machine Learning Brain ===
+pandas
+scikit-learn
+numpy
+
+# === NLP + Intelligence Expansion (future AI upgrades) ===
+nltk
+spacy
+transformers
+
+# === Audio Voice Intelligence (Only for local/dev use) ===
+pyttsx3; platform_system == "Windows"
+
+# === Web Scraping Intelligence Expansion ===
+selenium
+lxml
+fake_useragent
+
+# === Reddit API, Twitter Intelligence, Discord Expansion ===
+praw
+tweepy
+discord.py
+
+# === Cloud Logging / Monitoring / Visualization ===
+matplotlib
+seaborn
+plotly
+rich
+
+# === Data Storage / File Automation ===
+openpyxl
+xlrd
+python-dotenv
+
+# === Optional Add-Ons & Pro Features (for elite sniper ops) ===
+yfinance
+cryptocompare
+ccxt
+web3
+flask
+fastapi

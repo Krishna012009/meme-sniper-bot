@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: meme-sniper-bot
+    env: python
+    plan: pro
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python main.py"
+    envVars:
+      - key: GOOGLE_APPLICATION_CREDENTIALS
+        value: sniperbotsheets-456110-1d906bbd0516.json
+      - key: TELEGRAM_API_KEY
+        value: 8104354787:AAHyyCUEX-gpZzvbQfub_rT-lrdGn9q6ipMe
+    autoDeploy: true

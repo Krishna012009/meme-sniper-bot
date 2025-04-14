@@ -1,0 +1,54 @@
+from telethon.sync import TelegramClient
+from telethon.tl.functions.messages import GetHistoryRequest
+import re
+import time
+
+# === CONFIG ===
+api_id = 24339763
+api_hash = "9a3fadf2e761e921546a00b565ccec2e"
+phone_number = "+916399813966"
+session_name = "multi_group_session"
+
+# === Start Telethon Client
+client = TelegramClient(session_name, api_id, api_hash)
+client.connect()
+
+if not client.is_user_authorized():
+    client.send_code_request(phone_number)
+    client.sign_in(phone_number, input("Enter Telegram Code: "))
+
+# === Load Group Usernames
+def load_groups(file="groups_list.txt"):
+    with open(file, "r") as f:
+        return [line.strip() for line in f if line.strip() and not line.startswith("#")]
+
+GROUPS = load_groups()
+
+# === Sniper Logic
+def scan_group(group_username, limit=10):
+    try:
+        entity = client.get_entity(group_username)
+        history = client(GetHistoryRequest(
+            peer=entity,
+            limit=limit,
+            offset_date=None,
+            offset_id=0,
+            max_id=0,
+            min_id=0,
+            add_offset=0,
+            hash=0
+        ))
+        for message in history.messages:
+            if message.message:
+                text = message.message
+                token_match = re.search(r"0x[a-fA-F0-9]{40}", text)
+                if token_match:
+                    print(f"🚨 {group_username}: {text[:100]}...")
+    except Exception as e:
+        print(f"❌ Failed to fetch from {group_username}: {e}")
+
+# === MAIN LOOP
+print("🔁 Scanning Multiple Telegram Groups...\n")
+for group in GROUPS:
+    scan_group(group)
+    time.sleep(1)  # Avoid rate limit
