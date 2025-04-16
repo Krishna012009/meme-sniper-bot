@@ -1,13 +1,42 @@
 services:
   - type: web
-    name: meme-sniper-bot
+    name: meme-sniper-omega
     env: python
     plan: pro
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "python main.py"
+    region: oregon  # 🌎 Choose closest to main DEX (optional: frankfurt/singapore)
+    branch: master
+    autoDeploy: true
+
+    buildCommand: |
+      pip install -r requirements.txt
+      echo "[✅] Requirements Installed"
+    
+    startCommand: |
+      python main.py
+      echo "[🚀] Sniper Launched"
+
     envVars:
-      - key: GOOGLE_APPLICATION_CREDENTIALS
-        value: sniperbotsheets-456110-1d906bbd0516.json
       - key: TELEGRAM_API_KEY
         value: 8104354787:AAHyyCUEX-gpZzvbQfub_rT-lrdGn9q6ipMe
-    autoDeploy: true
+      - key: GOOGLE_APPLICATION_CREDENTIALS
+        value: sniperbotsheets-456110-1d906bbd0516.json
+      - key: GOOGLE_SHEET_ID
+        value: YOUR_GOOGLE_SHEET_ID_HERE  # 📊 Google Sheet for logging
+      - key: OPENAI_API_KEY
+        value: YOUR_OPTIONAL_AI_KEY_HERE  # 🧠 GPT power for analyzing hype
+      - key: SCAN_INTERVAL
+        value: "600"  # ⏱️ in seconds (600s = 10 min scan cycle)
+      - key: DEXSCREENER_PUMP_FILTER
+        value: "true"  # 🧪 Enable dexscreener viral token scan
+      - key: ENABLE_AUTO_BUY
+        value: "false"  # 💸 Set to true ONLY after full testing
+      - key: TARGET_CHAIN
+        value: "ETH,BNB,SOL"  # 🌐 Multiple chain support
+      - key: MIN_LIQUIDITY_USD
+        value: "10000"  # 🪙 Filters out trash pools
+      - key: MIN_VOLUME_24H
+        value: "50000"  # 📈 Only viral tokens allowed
+      - key: AI_SENTIMENT_ENABLED
+        value: "true"  # 🧠 Use AI to analyze tweet/telegram hype
+      - key: PAPER_TRADING
+        value: "true"  # 🧾 Sim mode ON for safety

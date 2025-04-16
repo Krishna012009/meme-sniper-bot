@@ -1,57 +1,69 @@
-# 📦 ai_trainer.py — FINAL PHASE: AI BRAIN V2 (Military-Grade Intelligence)
+# 📦 ai_trainer.py — GOD MODE AI BRAIN V2
 
 import pandas as pd
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.linear_model import LogisticRegression
 import os
+import re
 import schedule
 import time
 import threading
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.ensemble import RandomForestClassifier
 
-# === Global AI Engine
-vectorizer = CountVectorizer()
-model = LogisticRegression()
+# === GLOBAL AI ENGINE
+vectorizer = TfidfVectorizer(max_features=5000, stop_words="english")
+model = RandomForestClassifier(n_estimators=150, random_state=42)
 
 # === Dataset Path
 DATASET_PATH = "ai_training_dataset.csv"
 
-# === Load + Train
+# === Clean Message Function
+def clean_text(text):
+    text = str(text).lower()
+    text = re.sub(r"http\S+|www\S+|t\.me\S+", "", text)  # Remove links
+    text = re.sub(r"[^\w\s]", "", text)  # Remove punctuation
+    return text.strip()
+
+# === Load + Train Model
 def train_from_file(csv_file=DATASET_PATH):
     if not os.path.exists(csv_file):
         raise FileNotFoundError(f"❌ File missing: {csv_file}")
-
+    
     df = pd.read_csv(csv_file)
     if "message" not in df.columns or "viral" not in df.columns:
         raise ValueError("Dataset must contain 'message' and 'viral' columns")
 
-    X = vectorizer.fit_transform(df["message"].astype(str))
+    df["message"] = df["message"].astype(str).apply(clean_text)
+    X = vectorizer.fit_transform(df["message"])
     y = df["viral"]
     model.fit(X, y)
 
-    print(f"🧠 AI Brain trained on {len(df)} entries from {csv_file}")
+    print(f"🧠 GOD MODE AI Brain trained on {len(df)} samples 🚀")
 
 # === Initial Training
 train_from_file()
 
-# === Prediction
+# === Predict Viral Score
 def predict_viral_score(message):
-    vector = vectorizer.transform([message])
-    prediction = model.predict(vector)
-    probability = model.predict_proba(vector)
-    return prediction[0], round(probability[0][1] * 100, 2)
+    clean_msg = clean_text(message)
+    vector = vectorizer.transform([clean_msg])
+    pred = model.predict(vector)[0]
+    prob = model.predict_proba(vector)[0][1]
+    score = round(prob * 100, 2)
+    return pred, score
 
-# === Schedule Retraining (Every 2 Hours)
+# === Auto-Retrain Every 2 Hours
 def retrain_every_2_hours():
     schedule.every(2).hours.do(train_from_file)
     while True:
         schedule.run_pending()
         time.sleep(60)
 
-# === Run in Background Thread
+# === Launch Retrain Thread
 threading.Thread(target=retrain_every_2_hours, daemon=True).start()
 
-# === Manual Test (Optional)
+# === Manual Tester
 if __name__ == "__main__":
-    test_msg = "🚀 Alpha leak! Prelaunch stealth meme coin, LP locked, whale call."
+    test_msg = "🚀 Alpha leak! Prelaunch stealth meme coin, LP locked, whale call!"
     pred, score = predict_viral_score(test_msg)
-    print(f"Prediction: {'VIRAL' if pred else 'Not Viral'} ({score}%)")
+    emoji = "🔥" if pred else "⚠️"
+    print(f"{emoji} Prediction: {'VIRAL' if pred else 'Not Viral'} — Score: {score}%")
