@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "sniperbotsheets-456110",
+  "private_key_id": "1d906bbd051667105470970236b5d21f343f63e3",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCY6HfwKIB+eXgj\n7f2+gG4GaAnmyvGMqfJc7IuHTI8UcPaXceT31j7YcVp2x90nicXwnl4N7qSyPAus\nDwZ18dDjrL0Dke0UCJ+zrN0rLYgEnEP4GRl3tyDRqqATafwgAW/RbujxlrAxekiB\nFLYszn2hAujnEaxL3f8/7H8GfXEjwpEx7CvW35BXvIFpyJGxJRT3jz76s5SdAKHE\n1dnBMD747gquKsoydQczGlewh1Ff1rl4dvMVatjcU4MTipFC0UUcP9UP/Y8TyIvz\n+iXcuBqBP6j4eeWoVK8VRwDasFPxhaaGDuzARmoUlzAUYMX2++ZBAk6P+qEMXWad\nulDlIABLAgMBAAECggEANGYxt8yBYBYLPDDR7EcBrVNY1UzFowEYK4zqMbbkL0qY\nzoQ6xU2Xor+RkzPhjyuQ9+ilbZvSt7uI+nD5s1BnV6Y57a/DsUJVTBLYhfPn8UCF\nsE8VoadRaVhR2+VNf8BOS9R4olWT0pjHoOhyl385oQQowQqW4zbTwlmunBA/xdNe\n+aMj7DmWAV9k9IvK5lfBbjWbWMa0DpDHZnnbdi4FpqstIFXdtZ7E7T98DfSzK64h\nMLk1WwxD2aitt34toFnO4HkildhF8zT6p9pUutGmxOIdjSLr8NhqJiLo8ExiE4p4\nelS+8FXBhcbNS9EMHQm+bCNuOCgORL/30r8BYYAdQQKBgQDQfR+dNAn3WKXgex5L\nKF33NEm6w/AFv3KyhWQ+jOOFyRHPr5Q549im1dA3c8OJwJ5XUwCL4lPP6tk2snCB\nEMxM+ezi0ET8v6aHZ6hRw+ddxgVQsEyhkP51AxCDsvTJ0vSYET9FhgIibVbVYMYw\nyG4jQduSZyj2jMjhSQs94DBjQQKBgQC7wN0FpZTVLUh+okvJKEYVm3pX9CYS+XjT\nCeC74Of/8tPNqalU0R8mDbuNTUGEvahGh1nTTv+iZRKZYz2DHibseEsr8EAJjId9\n0PI/pJa+rKlbyMFwKV2dAx1NaLDQjyV3+i4m5K01HlYwGOJMkgzBlxxETkW302YH\nrHTksz8ciwKBgQCEn2Nx472HOzvhbVAa7SXA7+EKzkMr1NoIV7Qp2gONghczbvQy\nUw7pKc/WxmwXf5D56ZHKagF4nGLqWV4Zq+7Z9I3MxkFsKhmrvrOit6TA0QtmhY9p\no0tKcdWagUcX73qqFSaTeih3b+gxueq483akNOuQ2NCE7Y+HR6jABpGhQQKBgQCv\nhIKajspt5yFIUMxsRpwOAwUCSBl3z4PmNevDd2Mq4ISkVKEZy01FM71LQReo0ewH\n0uxkIAvWcopKnn2Yn41frq0HbFdRFfBr6/MrD+Bka+D/DtPW2LTM3WZ9QQtaTReH\n63dNoKVTbQLBf+G+FyKZr3wbVtjSGmvdbJjyW6b6NQKBgBodQLUQd1jqflABgOFB\ntf360d4TgGG/0PfHi5ji9m3lH9YyjnSkBVa68+LVwdDtEZinVEQgkGc4ZA3Dj1vM\nolHGhRGgjKaPV5Rr6WTEyihIAS9krus7+r5jnB3eWJS8/VgpbkSyMevco4t5So45\n9bJx/mwLwGS5CnaDfnZEdexb\n-----END PRIVATE KEY-----\n",
+  "client_email": "sniperbotservice@sniperbotsheets-456110.iam.gserviceaccount.com",
+  "client_id": "117347712353929531766",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/sniperbotservice%40sniperbotsheets-456110.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
